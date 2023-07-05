@@ -1,0 +1,56 @@
+.quote {
+  width: 600px;
+  height: auto;
+  background-color: white;
+  // background-color: rgb(random(150) + 50, random(150) + 50, random(150) + 50);
+  padding: 30px;
+  color: white;
+  span {
+    display: block;
+  }
+  button {
+    border: none;
+    border-radius: 4px;
+    height: auto;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+  }
+  &__icon {
+    font-size: 40px;
+  }
+  &__text {
+    font-size: 28px;
+    font-family: sans-serif;
+  }
+  &__author {
+    text-align: end;
+    font-size: 20px;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 20px;
+    &__social {
+      display: flex;
+      width: 50%;
+      &-btn {
+        width: 30px;
+        margin-left: 8px;
+      }
+    }
+    .new-quote {
+      display: flex;
+      width: 50%;
+      justify-content: end;
+    }
+  }
+}
+.screen {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
