@@ -1,3 +1,7 @@
+# Random Quotes App
+
+Link to GitHub pages [Random Quotes App](https://ichmen.github.io/quotes/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
