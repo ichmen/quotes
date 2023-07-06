@@ -7,14 +7,23 @@ import { faTwitter, faTumblr } from "@fortawesome/free-brands-svg-icons";
 
 export default function Quote() {
   const [quote, setQuote] = useState<any | null>(null);
+
   useEffect(() => {
-    fetchQuote();
+    // fetchQuote();
+    let ignore = false;
+
+    if (!ignore) {
+      fetchQuote();
+    }
+
+    return () => {
+      ignore = true;
+    };
   }, []);
   const fetchQuote = async () => {
-    const result = await getQuote();
-    setQuote(result);
+    setQuote(await getQuote());
   };
-  console.log(quote);
+
   if (!quote) {
     return null;
   }
@@ -43,7 +52,7 @@ export default function Quote() {
         <div className="buttons">
           <div className="buttons__social">
             <a
-              href={`https:twitter.com/intent/tweet?text=${quote.quote}`}
+              href={`https://twitter.com/intent/tweet?text=${quote.quote}`}
               target="_blank"
               rel="noreferrer"
               id="tweet-quote"
@@ -63,7 +72,11 @@ export default function Quote() {
             </a>
           </div>
           <div className="new-quote">
-            <button onClick={fetchQuote} style={backgroundColor} id="new-quote">
+            <button
+              onClick={() => fetchQuote()}
+              style={backgroundColor}
+              id="new-quote"
+            >
               New quote
             </button>
           </div>
