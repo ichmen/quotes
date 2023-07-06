@@ -52,7 +52,7 @@ export default function Quote() {
         <div className="buttons">
           <div className="buttons__social">
             <a
-              href={`https:twitter.com/intent/tweet?text=${quote.quote}`}
+              href={`https://twitter.com/intent/tweet?text=${quote.quote}`}
               target="_blank"
               rel="noreferrer"
               id="tweet-quote"
