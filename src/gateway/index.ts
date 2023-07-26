@@ -12,6 +12,7 @@ export async function getQuote() {
   try {
     const response = await axios.request(options);
     const { quote, author } = response.data[0];
+
     return {
       quote,
       author,
@@ -21,7 +22,7 @@ export async function getQuote() {
   }
 }
 export async function translate(quote: string) {
-  const sentancesArray = quote.match(/[^.!?;]+[.!?;]/g);
+  const sentancesArray = quote.match(/[^.!?]+[.!?]+|[^.!?]+[.!?]*$/g);
 
   const translated: string[] = [];
   if (!sentancesArray) return "";
