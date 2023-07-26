@@ -20,3 +20,31 @@ export async function getQuote() {
     console.error(error);
   }
 }
+export async function translate(quote: string) {
+  const sentancesArray = quote.match(/[^.!?;]+[.!?;]/g);
+
+  const translated: string[] = [];
+  if (!sentancesArray) return "";
+  for (const sentance of sentancesArray) {
+    if (sentance) {
+      const translatedSentance = await translateSentance(sentance.trim());
+      translated.push(translatedSentance);
+    }
+  }
+
+  return translated.join(" ");
+}
+
+async function translateSentance(sentance: string) {
+  const url = "https://translate.googleapis.com/translate_a/single";
+  const params = {
+    client: "gtx",
+    sl: "en",
+    tl: "uk",
+    dt: "t",
+    q: sentance,
+  };
+  const response = await axios.get(url, { params });
+  console.log(response.data[0][0][0]);
+  return response.data[0][0][0];
+}
