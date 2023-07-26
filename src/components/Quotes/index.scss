@@ -18,6 +18,7 @@
   }
   &__icon {
     font-size: 40px;
+    margin-right: 4px;
   }
   &__text {
     font-size: 28px;
@@ -44,6 +45,9 @@
       display: flex;
       width: 50%;
       justify-content: flex-end;
+      .translate{
+        margin-right: 8px;
+      }
     }
   }
 }
